@@ -11,11 +11,12 @@ dist_movies=[3, 3, 1, 2, 1]
 color='blue'
 mytitle='Highest grossing movies of 2022'
 
-label='by distributor'
+label='Distributor'
+label2='# of movies'
 
 ########### Set up the chart
 
-def make_that_cool_barchart(distributors, dist_movies, color, label, mytitle):
+def make_that_cool_barchart(distributors, dist_movies, color, label, label2, mytitle):
     dist = go.Bar(
         x=distributors,
         y=dist_movies,
@@ -24,7 +25,8 @@ def make_that_cool_barchart(distributors, dist_movies, color, label, mytitle):
     )
 
 
-    movie_fig = go.Figure(data=dist, title_text=mytitle)
+    movie_layout = go.Layout(title=mytitle, xaxis=label, yaxis=label2)
+    movie_fig = go.Figure(data=dist, layout=movie_layout)
     return movie_fig
 
 
