@@ -24,7 +24,7 @@ def make_that_cool_barchart(distributors, dist_movies, color, label, mytitle):
     )
 
 
-    movie_fig = go.Figure(data=dist, title=mytitle)
+    movie_fig = go.Figure(data=dist, title_text=mytitle)
     return movie_fig
 
 
