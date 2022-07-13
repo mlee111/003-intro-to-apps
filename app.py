@@ -21,18 +21,20 @@ def make_that_cool_barchart(distributors, dist_movies, color, label, label2, myt
         x=distributors,
         y=dist_movies,
         name=label,
-        marker={'color':color}
+        marker={'color':color},
     )
 
 
-    movie_layout = go.Layout(title=mytitle, xaxis=label, yaxis=label2)
-    movie_fig = go.Figure(data=dist, layout=movie_layout)
+    movie_fig = go.Figure(data=dist)
+    movie_fig.update_layout(title_text=mytitle)
+    movie_fig.update_xaxes(title_text=label)
+    movie_fig.update_yaxes(title_text=label2)
     return movie_fig
 
 
 ######### Run the function #######
 
 if __name__ == '__main__':
-    fig = make_that_cool_barchart(distributors, dist_movies, color, label, mytitle)
+    fig = make_that_cool_barchart(distributors, dist_movies, color, label, label2, mytitle)
     fig.write_html('docs/barchart.html')
     print('We successfully updated the barchart!')
